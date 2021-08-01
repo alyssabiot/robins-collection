@@ -44,6 +44,6 @@ class FigurinesController < ApplicationController
 
   private
    def figurine_params
-     params.require(:figurine).permit(:name, :comment)
+     params.require(:figurine).permit(:name, :comment, :reference_picture, :painted_picture)
    end
 end

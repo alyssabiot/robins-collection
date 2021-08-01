@@ -1,6 +1,17 @@
 <h1><%= @figurine.name %></h1>
 
+<h3>Commentaire</h3>
 <p><%= @figurine.comment %></p>
+
+<h3>Image de référence</h3>
+<% if @figurine.reference_picture.present? %>
+  <%= image_tag @figurine.reference_picture.variant(resize_to_limit: [150, nil]) %>
+<% end %>
+
+<h3>Figurine peinte</h3>
+<% if @figurine.painted_picture %>
+  <%= image_tag @figurine.painted_picture.variant(resize_to_limit: [150, nil]) %>
+<% end %>
 
 <ul>
   <li><%= link_to "Modifier", edit_figurine_path(@figurine) %></li>
