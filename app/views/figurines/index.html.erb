@@ -1,0 +1,11 @@
+<h1>Liste des figurines</h1>
+
+<ul>
+  <% @figurines.each do |figurine| %>
+    <li>
+      <%= link_to figurine.name, figurine %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Ajouter une figurine", new_figurine_path %>

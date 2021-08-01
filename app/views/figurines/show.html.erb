@@ -1,0 +1,10 @@
+<h1><%= @figurine.name %></h1>
+
+<p><%= @figurine.comment %></p>
+
+<ul>
+  <li><%= link_to "Modifier", edit_figurine_path(@figurine) %></li>
+  <li><%= link_to "Supprimer", figurine_path(@figurine),
+                  method: :delete,
+                  data: { confirm: "Etes-vous sûr ?" } %></li>
+</ul>
