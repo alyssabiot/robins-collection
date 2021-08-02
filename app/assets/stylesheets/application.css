@@ -35,3 +35,18 @@
 .font-weight-bold {
   font-weight: bold;
 }
+
+.pagination .page-link {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: grey;
+  border-color: grey;
+}
+
+.list-actions {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}

@@ -1,6 +1,6 @@
 class FigurinesController < ApplicationController
   def index
-    @figurines = Figurine.all
+    @figurines = Figurine.order(created_at: :desc).paginate(params[:page])
   end
 
   def show

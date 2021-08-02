@@ -25,4 +25,7 @@
   </tbody>
 </table>
 
-<%= link_to "Ajouter une figurine", new_figurine_path, class: "btn btn-dark" %>
+<div class='list-actions'>
+  <%= paginate @figurines %>
+  <%= link_to "Ajouter une figurine", new_figurine_path, class: "btn btn-dark" %>
+</div>

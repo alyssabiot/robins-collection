@@ -18,4 +18,7 @@
   </tbody>
 </table>
 
-<%= link_to "Ajouter un univers", new_universe_path, class: "btn btn-dark" %>
+<div class='list-actions'>
+  <%= paginate @universes %>
+  <%= link_to "Ajouter un univers", new_universe_path, class: "btn btn-dark" %>
+</div>

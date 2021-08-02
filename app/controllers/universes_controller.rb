@@ -1,6 +1,6 @@
 class UniversesController < ApplicationController
   def index
-    @universes = Universe.all
+    @universes = Universe.order(:name).paginate(params[:page])
   end
 
   def new
