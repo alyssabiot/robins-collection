@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :figurines
   resources :users, except: [:show]
+  resources :universes, except: [:show]
 end
