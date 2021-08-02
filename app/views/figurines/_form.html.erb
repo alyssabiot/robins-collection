@@ -9,7 +9,7 @@
 
   <div class="mb-3">
     <%= f.label "Univers", class: "form-label" %><br>
-    <%= f.collection_select :universe_id, Universe.all, :id, :name, {include_blank: "Non attribué"}, {class: "form-select"} %>
+    <%= f.collection_select :universe_id, Universe.all, :id, :name, {include_blank: true}, {class: "form-select"} %>
     <% @figurine.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -41,7 +41,7 @@
 
   <div class="mb-3">
     <%= f.label "Artiste", class: "form-label" %><br>
-    <%= f.collection_select :artist_id, Artist.all, :id, :name, {include_blank: "Non attribué"}, {class: "form-select"} %>
+    <%= f.collection_select :artist_id, Artist.all, :id, :name, {include_blank: true}, {class: "form-select"} %>
     <% @figurine.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>

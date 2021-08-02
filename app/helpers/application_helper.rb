@@ -6,4 +6,8 @@ module ApplicationHelper
       return ''
     end
   end
+
+  def display_boolean(value)
+    value ? "<i class='fa fa-check green'></i>".html_safe : "<i class='fa fa-times red'></i>".html_safe
+  end
 end

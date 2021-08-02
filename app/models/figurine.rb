@@ -8,8 +8,8 @@ class Figurine < ApplicationRecord
   has_one_attached :painted_picture
   has_one_attached :portrait
 
-  belongs_to :universe
-  belongs_to :artist
+  belongs_to :universe, optional: true
+  belongs_to :artist, optional: true
 
   # TO DO : refacto the image validations
 
@@ -50,5 +50,17 @@ class Figurine < ApplicationRecord
     unless acceptable_types.include?(portrait.content_type)
       errors.add(:portrait, "doit être un JPEG ou PNG")
     end
+  end
+
+  def painted?
+    painted_picture.present?
+  end
+
+  def reserved?
+    artist.present?
+  end
+
+  def portrayed?
+    portrait.present?
   end
 end

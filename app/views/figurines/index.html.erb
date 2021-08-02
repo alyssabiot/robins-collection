@@ -5,6 +5,9 @@
     <tr>
       <th scope="col">Nom</th>
       <th scope="col">Univers</th>
+      <th scope="col">Peinte ?</th>
+      <th scope="col">Réservée ?</th>
+      <th scope="col">Portrait terminé ?</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -13,6 +16,9 @@
       <tr>
         <th scope="row"><%= figurine.name %></th>
         <td><%= figurine.universe&.name %></td>
+        <td><%= display_boolean(figurine.painted?) %></td>
+        <td><%= display_boolean(figurine.reserved?) %></td>
+        <td><%= display_boolean(figurine.portrayed?) %></td>
         <td><%= link_to "Voir la fiche", figurine %></td>
       </tr>
     <% end %>
