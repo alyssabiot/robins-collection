@@ -1,61 +1,61 @@
 <%= form_with model: @figurine do |f| %>
-  <div>
-    <%= f.label "Nom" %><br>
-    <%= f.text_field :name %>
+  <div class="mb-3">
+    <%= f.label "Nom", class: "form-label" %><br>
+    <%= f.text_field :name, class: "form-control" %>
     <% @figurine.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= f.label "Univers" %><br>
-    <%= f.collection_select :universe_id, Universe.all, :id, :name %>
+  <div class="mb-3">
+    <%= f.label "Univers", class: "form-label" %><br>
+    <%= f.collection_select :universe_id, Universe.all, :id, :name, {include_blank: "Non attribué"}, {class: "form-select"} %>
     <% @figurine.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= f.label "Commentaire" %><br>
-    <%= f.text_area :comment %>
+  <div class="mb-3">
+    <%= f.label "Commentaire", class: "form-label" %><br>
+    <%= f.text_area :comment, class: "form-control" %>
     <% @figurine.errors.full_messages_for(:comment).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= f.label "Image de référence" %><br>
-    <%= f.file_field :reference_picture %>
+  <div class="mb-3">
+    <%= f.label "Image de référence", class: "form-label" %><br>
+    <%= f.file_field :reference_picture, class: "form-control-file" %>
     <% @figurine.errors.full_messages_for(:reference_picture).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= f.label "Figurine peinte" %><br>
-    <%= f.file_field :painted_picture %>
+  <div class="mb-3">
+    <%= f.label "Figurine peinte", class: "form-label" %><br>
+    <%= f.file_field :painted_picture, class: "form-control-file" %>
     <% @figurine.errors.full_messages_for(:painted_picture).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= f.label "Artiste" %><br>
-    <%= f.collection_select :artist_id, Artist.all, :id, :name %>
+  <div class="mb-3">
+    <%= f.label "Artiste", class: "form-label" %><br>
+    <%= f.collection_select :artist_id, Artist.all, :id, :name, {include_blank: "Non attribué"}, {class: "form-select"} %>
     <% @figurine.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= f.label "Portrait" %><br>
-    <%= f.file_field :portrait %>
+  <div class="mb-3">
+    <%= f.label "Portrait", class: "form-label" %><br>
+    <%= f.file_field :portrait, class: "form-control-file" %>
     <% @figurine.errors.full_messages_for(:portrait).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= f.submit "Enregistrer" %>
+    <%= f.submit "Enregistrer", class: "btn btn-dark" %>
   </div>
 <% end %>

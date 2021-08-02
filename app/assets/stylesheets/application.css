@@ -10,18 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require "bootstrap/scss/bootstrap"
  *= require_tree .
  *= require_self
- *= require "bootstrap/scss/bootstrap"
  */
 
-body {
-  margin: 0;
-  background-color: rgba(255, 200, 100, 0.5);
-}
-
 .container {
-  /* margin: 30px; */
   margin: 20px auto;
   width: 80%;
 }

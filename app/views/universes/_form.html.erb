@@ -1,13 +1,13 @@
 <%= form_with model: @universe do |f| %>
-  <div>
-    <%= f.label "Nom" %><br>
-    <%= f.text_field :name %>
+  <div class="mb-3">
+    <%= f.label "Nom", class: "form-label" %><br>
+    <%= f.text_field :name, class: "form-control" %>
     <% @universe.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= f.submit "Enregistrer" %>
+    <%= f.submit "Enregistrer", class: "btn btn-dark" %>
   </div>
 <% end %>
