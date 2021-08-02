@@ -1,0 +1,26 @@
+.navbar {
+  background-color: orange;
+}
+
+.navbar .navbar-nav {
+  margin: 0 30px;
+  padding: 20px 0;
+  list-style: none;
+  display: flex;
+ justify-content: space-evenly;
+}
+
+.navbar .navbar-item a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.navbar .navbar-item.active a {
+  color: #000;
+}
+
+.navbar a:hover {
+  color: #000;
+}
