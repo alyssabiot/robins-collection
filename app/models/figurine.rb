@@ -9,6 +9,7 @@ class Figurine < ApplicationRecord
   has_one_attached :portrait
 
   belongs_to :universe
+  belongs_to :artist
 
   # TO DO : refacto the image validations
 

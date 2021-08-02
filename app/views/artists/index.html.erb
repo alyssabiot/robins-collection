@@ -1,0 +1,17 @@
+<h1>Liste des artistes</h1>
+
+<ul>
+  <% @artists.each do |artist| %>
+    <li>
+      <%= artist.name %> |
+      <%= link_to "Modifier", edit_artist_path(artist) %> |
+      <%= link_to "Supprimer", artist_path(artist),
+                        method: :delete,
+                        data: { confirm: "Etes-vous sûr ?" } %>
+
+    </li>
+
+  <% end %>
+</ul>
+
+<%= link_to "Ajouter un artiste", new_artist_path %>

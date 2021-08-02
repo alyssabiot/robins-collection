@@ -12,6 +12,9 @@
 <h3>Figurine peinte</h3>
 <%= render "picture", picture: @figurine.painted_picture %>
 
+<h3>Artiste</h3>
+<p><%= @figurine.artist&.name %></p>
+
 <h3>Portrait</h3>
 <%= render "picture", picture: @figurine.portrait %>
 

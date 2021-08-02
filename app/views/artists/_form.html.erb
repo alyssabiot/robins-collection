@@ -1,8 +1,8 @@
-<%= form_with model: @user do |f| %>
+<%= form_with model: @artist do |f| %>
   <div>
     <%= f.label "Nom" %><br>
     <%= f.text_field :name %>
-    <% @user.errors.full_messages_for(:name).each do |message| %>
+    <% @artist.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>

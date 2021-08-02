@@ -40,6 +40,14 @@
   </div>
 
   <div>
+    <%= f.label "Artiste" %><br>
+    <%= f.collection_select :artist_id, Artist.all, :id, :name %>
+    <% @figurine.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= f.label "Portrait" %><br>
     <%= f.file_field :portrait %>
     <% @figurine.errors.full_messages_for(:portrait).each do |message| %>

@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root "figurines#index"
 
   resources :figurines
-  resources :users, except: [:show]
+  resources :artists, except: [:show]
   resources :universes, except: [:show]
 end
