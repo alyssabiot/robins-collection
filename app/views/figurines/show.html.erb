@@ -1,26 +1,35 @@
-<h1><%= @figurine.name %></h1>
-
-<h3>Univers</h3>
-<p><%= @figurine.universe&.name %></p>
-
-<h3>Commentaire</h3>
-<p><%= @figurine.comment %></p>
-
-<h3>Image de référence</h3>
-<%= render "picture", picture: @figurine.reference_picture %>
-
-<h3>Figurine peinte</h3>
-<%= render "picture", picture: @figurine.painted_picture %>
-
-<h3>Artiste</h3>
-<p><%= @figurine.artist&.name %></p>
-
-<h3>Portrait</h3>
-<%= render "picture", picture: @figurine.portrait %>
-
-<ul>
-  <li><%= link_to "Modifier", edit_figurine_path(@figurine) %></li>
-  <li><%= link_to "Supprimer", figurine_path(@figurine),
-                  method: :delete,
-                  data: { confirm: "Etes-vous sûr ?" } %></li>
-</ul>
+<div class="card text-dark bg-light mb-3 figurine-card">
+  <div class="card-header">
+    <h1 class="m-0"><%= @figurine.name %></h1>
+    <p class="m-0"><%= link_to "Modifier", edit_figurine_path(@figurine) %> |
+    <%= link_to "Supprimer", figurine_path(@figurine),
+                    method: :delete,
+                    data: { confirm: "Etes-vous sûr ?" } %></p>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <%= render "picture", picture: @figurine.portrait %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-text"><span class="font-weight-bold">Univers : </span><%= @figurine.universe&.name %></p>
+            <p class="card-text"><span class="font-weight-bold">Commentaire : </span><%= @figurine.comment %></p>
+            <p class="card-text"><span class="font-weight-bold">Artiste : </span><%= @figurine.artist&.name %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-6">
+          <%= render "picture", picture: @figurine.reference_picture %>
+        </div>
+        <div class="col-md-6">
+          <%= render "picture", picture: @figurine.painted_picture %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
