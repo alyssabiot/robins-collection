@@ -2,11 +2,13 @@ class Figurine < ApplicationRecord
   validates :name, presence: true
   validate :acceptable_reference_picture
   validate :acceptable_painted_picture
-  validate :acceptable_portrait_picture
+  validate :acceptable_portrait
 
   has_one_attached :reference_picture
   has_one_attached :painted_picture
   has_one_attached :portrait
+
+  belongs_to :universe
 
   # TO DO : refacto the image validations
 

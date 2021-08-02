@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_02_101546) do
+ActiveRecord::Schema.define(version: 2021_08_02_102646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_08_02_101546) do
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "universe_id"
+    t.index ["universe_id"], name: "index_figurines_on_universe_id"
   end
 
   create_table "universes", force: :cascade do |t|

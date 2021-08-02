@@ -8,6 +8,14 @@
   </div>
 
   <div>
+    <%= f.label "Univers" %><br>
+    <%= f.collection_select :universe_id, Universe.all, :id, :name %>
+    <% @figurine.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= f.label "Commentaire" %><br>
     <%= f.text_area :comment %>
     <% @figurine.errors.full_messages_for(:comment).each do |message| %>
@@ -27,6 +35,14 @@
     <%= f.label "Figurine peinte" %><br>
     <%= f.file_field :painted_picture %>
     <% @figurine.errors.full_messages_for(:painted_picture).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label "Portrait" %><br>
+    <%= f.file_field :portrait %>
+    <% @figurine.errors.full_messages_for(:portrait).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
