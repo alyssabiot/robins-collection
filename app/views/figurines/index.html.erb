@@ -1,11 +1,22 @@
 <h1>Liste des figurines</h1>
 
-<ul>
-  <% @figurines.each do |figurine| %>
-    <li>
-      <%= link_to figurine.name, figurine %>
-    </li>
-  <% end %>
-</ul>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Univers</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @figurines.each do |figurine| %>
+      <tr>
+        <th scope="row"><%= figurine.name %></th>
+        <td><%= figurine.universe&.name %></td>
+        <td><%= link_to "Voir la fiche", figurine %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "Ajouter une figurine", new_figurine_path, class: "btn btn-dark" %>
