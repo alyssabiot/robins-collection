@@ -1,17 +1,21 @@
 <h1>Liste des univers</h1>
 
-<ul>
-  <% @universes.each do |universe| %>
-    <li>
-      <%= universe.name %> |
-      <%= link_to "Modifier", edit_universe_path(universe) %> |
-      <%= link_to "Supprimer", universe_path(universe),
-                        method: :delete,
-                        data: { confirm: "Etes-vous sûr ?" } %>
-
-    </li>
-
-  <% end %>
-</ul>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @universes.each do |universe| %>
+      <tr>
+        <th scope="row"><%= universe.name %></th>
+        <td><%= link_to "Modifier", edit_universe_path(universe) %> |
+            <%= link_to "Supprimer", universe_path(universe), method: :delete, data: { confirm: "Etes-vous sûr ?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "Ajouter un univers", new_universe_path, class: "btn btn-dark" %>
