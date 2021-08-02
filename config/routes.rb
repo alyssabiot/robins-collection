@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root "figurines#index"
 
   resources :figurines
+  resources :users, except: [:show]
 end
