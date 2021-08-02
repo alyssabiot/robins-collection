@@ -4,14 +4,13 @@
 <p><%= @figurine.comment %></p>
 
 <h3>Image de référence</h3>
-<% if @figurine.reference_picture.present? %>
-  <%= image_tag @figurine.reference_picture.variant(resize_to_limit: [150, nil]) %>
-<% end %>
+<%= render "picture", picture: @figurine.reference_picture %>
 
 <h3>Figurine peinte</h3>
-<% if @figurine.painted_picture %>
-  <%= image_tag @figurine.painted_picture.variant(resize_to_limit: [150, nil]) %>
-<% end %>
+<%= render "picture", picture: @figurine.painted_picture %>
+
+<h3>Portrait</h3>
+<%= render "picture", picture: @figurine.portrait %>
 
 <ul>
   <li><%= link_to "Modifier", edit_figurine_path(@figurine) %></li>
