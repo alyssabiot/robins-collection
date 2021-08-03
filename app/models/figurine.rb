@@ -10,6 +10,7 @@ class Figurine < ApplicationRecord
 
   belongs_to :universe, optional: true
   belongs_to :artist, optional: true
+  belongs_to :family, optional: true
 
   # TO DO : refacto the image validations
 

@@ -2,8 +2,6 @@ class FigurinesController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    puts "*"*75
-    puts "sorting : #{sort_column + " " + sort_direction}"
     @figurines = Figurine.includes(:universe).order(sort_column + " " + sort_direction).paginate(params[:page])
     @total = Figurine.all.count
   end
@@ -50,25 +48,16 @@ class FigurinesController < ApplicationController
   private
   def figurine_params
     params.require(:figurine).permit(:name, :comment, :reference_picture,
-                                      :painted_picture, :portrait, :universe_id, :artist_id)
+                                      :painted_picture, :portrait, :universe_id,
+                                      :artist_id, :family_id)
   end
 
   def sort_column
-    puts "*"*75
-    puts "params sort : #{params[:sort]}"
-    # case params[:sort]
-    # when "universe"
-    #   "universes.name"
-    # else
-    #   "name"
-    # end
     sortable_fields = ["name", "universes.name"]
     sortable_fields.include?(params[:sort]) ? params[:sort] : "name"
   end
 
   def sort_direction
-    puts "*"*75
-    puts "params direction : #{params[:direction]}"
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

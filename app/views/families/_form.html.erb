@@ -1,0 +1,13 @@
+<%= form_with model: @family do |f| %>
+  <div class="mb-3">
+    <%= f.label "Nom", class: "form-label" %><br>
+    <%= f.text_field :name, class: "form-control" %>
+    <% @family.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit "Enregistrer", class: "btn btn-dark" %>
+  </div>
+<% end %>
