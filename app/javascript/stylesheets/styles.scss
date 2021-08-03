@@ -1,0 +1,47 @@
+@import "bootstrap";
+@import "figurines";
+
+.container {
+  margin: 20px auto;
+  width: 80%;
+}
+
+a {
+  text-decoration: none;
+  color: #212529;
+}
+
+a:hover {
+  color: black;
+}
+
+.fa.green {
+  color: green;
+}
+
+.fa.red {
+  color: red;
+}
+
+.margin-10 {
+  margin: 10px;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.pagination .page-link {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: grey;
+  border-color: grey;
+}
+
+.list-actions {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
