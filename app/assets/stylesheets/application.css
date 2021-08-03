@@ -20,6 +20,15 @@
   width: 80%;
 }
 
+a {
+  text-decoration: none;
+  color: #212529;
+}
+
+a:hover {
+  color: black;
+}
+
 .fa.green {
   color: green;
 }
