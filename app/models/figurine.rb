@@ -12,6 +12,8 @@ class Figurine < ApplicationRecord
   belongs_to :artist, optional: true
   belongs_to :family, optional: true
 
+  before_save :set_boolean_fields
+
   # TO DO : refacto the image validations
 
   def acceptable_reference_picture
@@ -53,15 +55,9 @@ class Figurine < ApplicationRecord
     end
   end
 
-  def painted?
-    painted_picture.present?
-  end
-
-  def reserved?
-    artist.present?
-  end
-
-  def portrayed?
-    portrait.present?
+  def set_boolean_fields
+    self.is_painted = painted_picture.present?
+    self.has_artist = artist.present?
+    self.has_portrait = portrait.present?
   end
 end

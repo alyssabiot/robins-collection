@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_143458) do
+ActiveRecord::Schema.define(version: 2021_08_03_211403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,9 @@ ActiveRecord::Schema.define(version: 2021_08_03_143458) do
     t.bigint "universe_id"
     t.bigint "artist_id"
     t.bigint "family_id"
+    t.boolean "is_painted", default: false
+    t.boolean "has_artist", default: false
+    t.boolean "has_portrait", default: false
     t.index ["artist_id"], name: "index_figurines_on_artist_id"
     t.index ["family_id"], name: "index_figurines_on_family_id"
     t.index ["universe_id"], name: "index_figurines_on_universe_id"

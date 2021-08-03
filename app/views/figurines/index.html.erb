@@ -5,9 +5,9 @@
     <tr>
       <th scope="col"><%= sortable "name", display_order_arrow("Nom") %></th>
       <th scope="col"><%= sortable "universes.name", display_order_arrow("Univers") %></th>
-      <th scope="col">Peinte ?</th>
-      <th scope="col">Réservée ?</th>
-      <th scope="col">Portrait terminé ?</th>
+      <th scope="col"><%= sortable "is_painted", display_order_arrow("Peinte ?") %></th>
+      <th scope="col"><%= sortable "has_artist", display_order_arrow("Attribuée ?") %></th>
+      <th scope="col"><%= sortable "has_portrait", display_order_arrow("Portrait terminé ?") %></th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -16,9 +16,9 @@
       <tr>
         <th scope="row"><%= figurine.name %></th>
         <td><%= figurine.universe&.name %></td>
-        <td><%= display_boolean(figurine.painted?) %></td>
-        <td><%= display_boolean(figurine.reserved?) %></td>
-        <td><%= display_boolean(figurine.portrayed?) %></td>
+        <td><%= display_boolean(figurine.is_painted) %></td>
+        <td><%= display_boolean(figurine.has_artist) %></td>
+        <td><%= display_boolean(figurine.has_portrait) %></td>
         <td><%= link_to "Voir la fiche", figurine %></td>
       </tr>
     <% end %>

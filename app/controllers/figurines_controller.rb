@@ -53,7 +53,7 @@ class FigurinesController < ApplicationController
   end
 
   def sort_column
-    sortable_fields = ["name", "universes.name"]
+    sortable_fields = ["name", "universes.name", "is_painted", "has_artist", "has_portrait"]
     sortable_fields.include?(params[:sort]) ? params[:sort] : "name"
   end
 

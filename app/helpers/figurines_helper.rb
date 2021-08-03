@@ -1,2 +1,0 @@
-module FigurinesHelper
-end
