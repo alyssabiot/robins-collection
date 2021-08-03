@@ -32,5 +32,46 @@
         </div>
       </div>
     </div>
+    <div class="card mb-3">
+      <div class="card-header">
+        <h4 class="m-0">Réservations (EN COURS - DON'T OPEN BUG INSIDE)</h4>
+      </div>
+      <div class="card-body">
+        <p class="card-text font-weight-bold">Réservations existantes :</p>
+        <ul>
+          <% @bookings.each do |booking| %>
+            <li><%= "#{booking.game.name} - par #{booking.player}" %></li>
+          <% end %>
+        </ul>
+
+        <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseBookingForm" role="button" aria-expanded="false" aria-controls="collapseBookingForm">
+          Réserver cette figurine pour une partie
+        </a>
+
+        <div class="collapse" id="collapseBookingForm">
+          <%= form_with model: [@figurine, @booking] do |f| %>
+            <div class="mb-3">
+              <%= f.label "Partie", class: "form-label" %><br>
+              <%= f.collection_select :game_id, Game.all, :id, :name, {}, {class: "form-select"} %>
+              <% @booking.errors.full_messages_for(:game_id).each do |message| %>
+              <div><%= message %></div>
+              <% end %>
+            </div>
+
+            <div class="mb-3">
+              <%= f.label "Joueur", class: "form-label" %><br>
+              <%= f.text_field :player, class: "form-control" %>
+              <% @booking.errors.full_messages_for(:player).each do |message| %>
+                <div><%= message %></div>
+              <% end %>
+            </div>
+
+            <div>
+              <%= f.submit "Enregistrer", class: "btn btn-dark" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

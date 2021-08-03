@@ -11,6 +11,8 @@ class Figurine < ApplicationRecord
   belongs_to :universe, optional: true
   belongs_to :artist, optional: true
   belongs_to :family, optional: true
+  has_many :bookings
+  has_many :games, through: :bookings
 
   before_save :set_boolean_fields
 

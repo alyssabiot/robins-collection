@@ -8,6 +8,8 @@ class FigurinesController < ApplicationController
 
   def show
     @figurine = Figurine.find(params[:id])
+    @booking = Booking.new
+    @bookings = @figurine.bookings
   end
 
   def new

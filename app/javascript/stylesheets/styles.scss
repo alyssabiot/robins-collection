@@ -1,9 +1,10 @@
-@import "bootstrap";
-@import "figurines";
-
 .container {
   margin: 20px auto;
   width: 80%;
+}
+
+.btn:focus, .navbar-toggler:focus {
+  box-shadow: none;
 }
 
 a {
