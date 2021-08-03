@@ -1,0 +1,21 @@
+<%= form_with model: @game do |f| %>
+  <div class="mb-3">
+    <%= f.label "Nom", class: "form-label" %><br>
+    <%= f.text_field :name, class: "form-control" %>
+    <% @game.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label "Commentaire", class: "form-label" %><br>
+    <%= f.text_field :comment, class: "form-control" %>
+    <% @game.errors.full_messages_for(:comment).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit "Enregistrer", class: "btn btn-dark" %>
+  </div>
+<% end %>

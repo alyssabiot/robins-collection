@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :artists, except: [:show]
   resources :universes, except: [:show]
   resources :families, except: [:show]
+  resources :games, except: [:show]
 end

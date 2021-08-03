@@ -1,0 +1,26 @@
+<h1>Liste des parties</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Commentaire</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <th scope="row"><%= game.name %></th>
+        <td><%= game.comment %></td>
+        <td><%= link_to "Modifier", edit_game_path(game) %> |
+            <%= link_to "Supprimer", game_path(game), method: :delete, data: { confirm: "Etes-vous sûr ?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class='list-actions'>
+  <%= paginate @games %>
+  <%= link_to "Ajouter une partie", new_game_path, class: "btn btn-dark" %>
+</div>
