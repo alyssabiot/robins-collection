@@ -1,0 +1,26 @@
+<h1>Liste des classes</h1>
+
+<div class='list-actions'>
+  <%= paginate @specialities %>
+  <%= link_to "Ajouter une classe", new_speciality_path, class: "btn btn-dark" %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Nb de figurines</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @specialities.each do |speciality| %>
+      <tr>
+        <th scope="row"><%= speciality.name %></th>
+        <td><%= speciality.figurines.count %></td>
+        <td><%= link_to "Modifier", edit_speciality_path(speciality) %> |
+            <%= link_to "Supprimer", speciality_path(speciality), method: :delete, data: { confirm: "Etes-vous sûr ?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

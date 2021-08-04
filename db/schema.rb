@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_04_205950) do
+ActiveRecord::Schema.define(version: 2021_08_04_223149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,14 +75,22 @@ ActiveRecord::Schema.define(version: 2021_08_04_205950) do
     t.bigint "family_id"
     t.boolean "is_painted", default: false
     t.boolean "has_portrait", default: false
+    t.bigint "speciality_id"
     t.index ["artist_id"], name: "index_figurines_on_artist_id"
     t.index ["family_id"], name: "index_figurines_on_family_id"
+    t.index ["speciality_id"], name: "index_figurines_on_speciality_id"
     t.index ["universe_id"], name: "index_figurines_on_universe_id"
   end
 
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "specialities", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

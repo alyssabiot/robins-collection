@@ -2,10 +2,10 @@ class FigurinesController < ApplicationController
   http_basic_authenticate_with name: ENV['APP_USERNAME'], password: ENV['APP_PASSWORD'], except: [:index, :show] if Rails.env.production?
   helper_method :sort_column, :sort_direction
 
-  SORTABLE_FIELDS = ["name", "universes.name", "families.name", "is_painted", "artists.name", "has_portrait"]
+  SORTABLE_FIELDS = ["name", "universes.name", "families.name", "specialities.name", "is_painted", "artists.name", "has_portrait"]
 
   def index
-    @figurines = Figurine.includes(:universe, :family, :artist).order("#{sort_column} #{sort_direction}", name: :asc).paginate(params[:page])
+    @figurines = Figurine.includes(:universe, :family, :speciality, :artist).order("#{sort_column} #{sort_direction}", name: :asc).paginate(params[:page])
     @total = Figurine.all.count
   end
 
@@ -54,7 +54,7 @@ class FigurinesController < ApplicationController
   def figurine_params
     params.require(:figurine).permit(:name, :comment, :reference_picture,
                                       :painted_picture, :portrait, :universe_id,
-                                      :artist_id, :family_id)
+                                      :artist_id, :family_id, :speciality_id)
   end
 
   def sort_column

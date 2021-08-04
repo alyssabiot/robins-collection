@@ -12,9 +12,10 @@
       <th scope="col">Référence</th>
       <th scope="col"><%= sortable "universes.name", display_order_arrow("Univers"), figurines_path %></th>
       <th scope="col"><%= sortable "families.name", display_order_arrow("Espèce"), figurines_path %></th>
+      <th scope="col"><%= sortable "specialities.name", display_order_arrow("Classe"), figurines_path %></th>
       <th scope="col"><%= sortable "is_painted", display_order_arrow("Peinte"), figurines_path %></th>
       <th scope="col"><%= sortable "artists.name", display_order_arrow("Artiste"), figurines_path %></th>
-      <th scope="col"><%= sortable "has_portrait", display_order_arrow("Portrait terminé"), figurines_path %></th>
+      <th scope="col"><%= sortable "has_portrait", display_order_arrow("Portrait"), figurines_path %></th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -25,6 +26,7 @@
         <td class="text-center"><%= render "mini_picture", picture: figurine.reference_picture %></td>
         <td><%= figurine.universe&.name %></td>
         <td><%= figurine.family&.name %></td>
+        <td><%= figurine.speciality&.name %></td>
         <td class="text-center"><%= display_boolean(figurine.is_painted) %></td>
         <td><%= figurine.artist&.name %></td>
         <td class="text-center"><%= display_boolean(figurine.has_portrait) %></td>

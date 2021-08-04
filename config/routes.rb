@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :figurines do
     resources :bookings, only: [:create]
   end
-  resources :artists, except: [:show]
   resources :universes, except: [:show]
   resources :families, except: [:show]
+  resources :specialities, except: [:show]
+  resources :artists, except: [:show]
   resources :games, except: [:show]
 end

@@ -24,6 +24,14 @@
   </div>
 
   <div class="mb-3">
+    <%= f.label "Classe", class: "form-label" %><br>
+    <%= f.collection_select :speciality_id, Speciality.all, :id, :name, {include_blank: true}, {class: "form-select"} %>
+    <% @figurine.errors.full_messages_for(:speciality_id).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
     <%= f.label "Commentaire", class: "form-label" %><br>
     <%= f.text_area :comment, class: "form-control" %>
     <% @figurine.errors.full_messages_for(:comment).each do |message| %>

@@ -9,6 +9,8 @@ class Figurine < ApplicationRecord
   belongs_to :universe, optional: true
   belongs_to :artist, optional: true
   belongs_to :family, optional: true
+  belongs_to :speciality, optional: true
+
   has_many :bookings, dependent: :destroy
   has_many :games, through: :bookings
 
