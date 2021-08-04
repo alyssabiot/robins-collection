@@ -16,7 +16,6 @@ class Figurine < ApplicationRecord
 
   def set_boolean_fields
     self.is_painted = painted_picture.present?
-    self.has_artist = artist.present?
     self.has_portrait = portrait.present?
   end
 end

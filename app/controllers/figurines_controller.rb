@@ -2,10 +2,10 @@ class FigurinesController < ApplicationController
   http_basic_authenticate_with name: ENV['APP_USERNAME'], password: ENV['APP_PASSWORD'], except: [:index, :show] if Rails.env.production?
   helper_method :sort_column, :sort_direction
 
-  SORTABLE_FIELDS = ["name", "universes.name", "families.name", "is_painted", "has_artist", "has_portrait"]
+  SORTABLE_FIELDS = ["name", "universes.name", "families.name", "is_painted", "artists.name", "has_portrait"]
 
   def index
-    @figurines = Figurine.includes(:universe, :family).order("#{sort_column} #{sort_direction}", name: :asc).paginate(params[:page])
+    @figurines = Figurine.includes(:universe, :family, :artist).order("#{sort_column} #{sort_direction}", name: :asc).paginate(params[:page])
     @total = Figurine.all.count
   end
 
