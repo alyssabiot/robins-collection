@@ -1,5 +1,10 @@
 <h1>Liste des espèces</h1>
 
+<div class='list-actions'>
+  <%= paginate @families %>
+  <%= link_to "Ajouter une espèce", new_family_path, class: "btn btn-dark" %>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -17,8 +22,3 @@
     <% end %>
   </tbody>
 </table>
-
-<div class='list-actions'>
-  <%= paginate @families %>
-  <%= link_to "Ajouter une espèce", new_family_path, class: "btn btn-dark" %>
-</div>

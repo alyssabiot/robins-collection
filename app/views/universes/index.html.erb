@@ -1,5 +1,10 @@
 <h1>Liste des univers</h1>
 
+<div class='list-actions'>
+  <%= paginate @universes %>
+  <%= link_to "Ajouter un univers", new_universe_path, class: "btn btn-dark" %>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -17,8 +22,3 @@
     <% end %>
   </tbody>
 </table>
-
-<div class='list-actions'>
-  <%= paginate @universes %>
-  <%= link_to "Ajouter un univers", new_universe_path, class: "btn btn-dark" %>
-</div>

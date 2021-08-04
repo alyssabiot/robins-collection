@@ -1,5 +1,10 @@
 <h1>Liste des parties</h1>
 
+<div class='list-actions'>
+  <%= paginate @games %>
+  <%= link_to "Ajouter une partie", new_game_path, class: "btn btn-dark" %>
+</div>
+
 <table class="table table-striped games-list">
   <thead>
     <tr>
@@ -27,8 +32,3 @@
     <% end %>
   </tbody>
 </table>
-
-<div class='list-actions'>
-  <%= paginate @games %>
-  <%= link_to "Ajouter une partie", new_game_path, class: "btn btn-dark" %>
-</div>

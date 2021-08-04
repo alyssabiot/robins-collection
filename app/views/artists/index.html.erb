@@ -1,5 +1,10 @@
 <h1>Liste des artistes</h1>
 
+<div class='list-actions'>
+  <%= paginate @artists %>
+  <%= link_to "Ajouter un artiste", new_artist_path, class: "btn btn-dark" %>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -17,8 +22,3 @@
     <% end %>
   </tbody>
 </table>
-
-<div class='list-actions'>
-  <%= paginate @artists %>
-  <%= link_to "Ajouter un artiste", new_artist_path, class: "btn btn-dark" %>
-</div>
