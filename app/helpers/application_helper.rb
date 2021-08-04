@@ -24,5 +24,5 @@ module ApplicationHelper
     else
       "#{column} <i class='fa fa-angle-up'></i>".html_safe
     end
-end
+  end 
 end
