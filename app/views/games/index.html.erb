@@ -1,10 +1,11 @@
 <h1>Liste des parties</h1>
 
-<table class="table table-striped">
+<table class="table table-striped games-list">
   <thead>
     <tr>
       <th scope="col">Nom</th>
       <th scope="col">Commentaire</th>
+      <th scope="col">Figurines et joueurs</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -13,6 +14,13 @@
       <tr>
         <th scope="row"><%= game.name %></th>
         <td><%= game.comment %></td>
+        <td>
+          <ul>
+            <% game.bookings.each do |booking| %>
+              <li><%= "#{booking.figurine.name} - #{booking.player}" %></li>
+            <% end %>
+          </ul>
+        </td>
         <td><%= link_to "Modifier", edit_game_path(game) %> |
             <%= link_to "Supprimer", game_path(game), method: :delete, data: { confirm: "Etes-vous sûr ?" } %></td>
       </tr>
