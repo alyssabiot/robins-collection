@@ -1,8 +1,10 @@
 class FigurinesController < ApplicationController
   helper_method :sort_column, :sort_direction
 
+  SORTABLE_FIELDS = ["name", "universes.name", "families.name", "is_painted", "has_artist", "has_portrait"]
+
   def index
-    @figurines = Figurine.includes(:universe).order(sort_column + " " + sort_direction).paginate(params[:page])
+    @figurines = Figurine.includes(:universe, :family).order("#{sort_column} #{sort_direction}", name: :asc).paginate(params[:page])
     @total = Figurine.all.count
   end
 
@@ -55,8 +57,7 @@ class FigurinesController < ApplicationController
   end
 
   def sort_column
-    sortable_fields = ["name", "universes.name", "is_painted", "has_artist", "has_portrait"]
-    sortable_fields.include?(params[:sort]) ? params[:sort] : "name"
+    SORTABLE_FIELDS.include?(params[:sort]) ? params[:sort] : "name"
   end
 
   def sort_direction

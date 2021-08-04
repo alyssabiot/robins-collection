@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'ffaker'
 
 40.times do |i|
-  Figurine.create(name: "personnage n#{i+1}")
+  Figurine.create(name: FFaker::Name.name_with_suffix)
 end
