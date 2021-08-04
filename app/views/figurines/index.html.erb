@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th scope="col"><%= sortable "name", display_order_arrow("Nom"), figurines_path %></th>
+      <th scope="col">Référence</th>
       <th scope="col"><%= sortable "universes.name", display_order_arrow("Univers"), figurines_path %></th>
       <th scope="col"><%= sortable "families.name", display_order_arrow("Espèce"), figurines_path %></th>
       <th scope="col"><%= sortable "is_painted", display_order_arrow("Peinte"), figurines_path %></th>
@@ -16,11 +17,12 @@
     <% @figurines.each do |figurine| %>
       <tr>
         <th scope="row"><%= figurine.name %></th>
+        <td class="text-center"><%= render "mini_picture", picture: figurine.reference_picture %></td>
         <td><%= figurine.universe&.name %></td>
         <td><%= figurine.family&.name %></td>
-        <td><%= display_boolean(figurine.is_painted) %></td>
-        <td><%= display_boolean(figurine.has_artist) %></td>
-        <td><%= display_boolean(figurine.has_portrait) %></td>
+        <td class="text-center"><%= display_boolean(figurine.is_painted) %></td>
+        <td class="text-center"><%= display_boolean(figurine.has_artist) %></td>
+        <td class="text-center"><%= display_boolean(figurine.has_portrait) %></td>
         <td><%= link_to "Voir la fiche", figurine %></td>
       </tr>
     <% end %>
