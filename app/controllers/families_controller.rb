@@ -1,4 +1,6 @@
 class FamiliesController < ApplicationController
+  http_basic_authenticate_with name: ENV['APP_USERNAME'], password: ENV['APP_PASSWORD'], except: [:index] if Rails.env.production?
+
   def index
     @families = Family.order(:name).paginate(params[:page])
   end
