@@ -9,6 +9,7 @@
   <thead>
     <tr>
       <th scope="col">Nom</th>
+      <th scope="col">Nb de figurines</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
     <% @universes.each do |universe| %>
       <tr>
         <th scope="row"><%= universe.name %></th>
+        <td><%= universe.figurines.count %></td>
         <td><%= link_to "Modifier", edit_universe_path(universe) %> |
             <%= link_to "Supprimer", universe_path(universe), method: :delete, data: { confirm: "Etes-vous sûr ?" } %></td>
       </tr>
