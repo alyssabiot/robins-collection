@@ -3,16 +3,22 @@
 <div class="card text-dark bg-light mb-3 figurine-card">
   <div class="card-header">
     <h1 class="m-0"><%= @figurine.name %></h1>
-    <p class="m-0"><%= link_to "Modifier", edit_figurine_path(@figurine) %> |
-    <%= link_to "Supprimer", figurine_path(@figurine),
-                    method: :delete,
-                    data: { confirm: "Etes-vous sûr ?" } %></p>
+    <p class="m-0">
+      <%= link_to "Réserver pour une partie", "#",
+                  data: {"bs-toggle" => "modal", "bs-target" => "#bookingModal"} %> |
+      <%= link_to "Modifier", edit_figurine_path(@figurine) %> |
+      <%= link_to "Supprimer", figurine_path(@figurine),
+                  method: :delete,
+                  data: { confirm: "Etes-vous sûr ?" } %>
+    </p>
   </div>
   <div class="card-body">
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-md-6">
-          <%= render "picture", picture: @figurine.portrait %>
+          <div class="card-body">
+            <%= render "picture", picture: @figurine.portrait %>
+          </div>
         </div>
         <div class="col-md-6">
           <div class="card-body">
@@ -28,53 +34,24 @@
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-md-6">
-          <%= render "picture", picture: @figurine.reference_picture %>
+          <div class="card-body">
+            <%= render "picture", picture: @figurine.reference_picture %>
+          </div>
         </div>
         <div class="col-md-6">
-          <%= render "picture", picture: @figurine.painted_picture %>
+          <div class="card-body">
+            <%= render "picture", picture: @figurine.painted_picture %>
+          </div>
         </div>
       </div>
     </div>
     <div class="card mb-3">
-      <div class="card-header">
-        <h4 class="m-0">Réservations</h4>
-      </div>
       <div class="card-body">
-        <p class="card-text font-weight-bold">Réservations existantes :</p>
-        <ul>
-          <% @bookings.each do |booking| %>
-            <li><%= "#{booking.game.name} - par #{booking.player}" %></li>
-          <% end %>
-        </ul>
-
-        <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseBookingForm" role="button" aria-expanded="false" aria-controls="collapseBookingForm">
-          Réserver cette figurine pour une partie
-        </a>
-
-        <div class="collapse" id="collapseBookingForm">
-          <%= form_with model: [@figurine, @booking] do |f| %>
-            <div class="mb-3">
-              <%= f.label "Partie", class: "form-label" %><br>
-              <%= f.collection_select :game_id, Game.all, :id, :name_with_date, {}, {class: "form-select"} %>
-              <% @booking.errors.full_messages_for(:game_id).each do |message| %>
-              <div><%= message %></div>
-              <% end %>
-            </div>
-
-            <div class="mb-3">
-              <%= f.label "Joueur", class: "form-label" %><br>
-              <%= f.text_field :player, class: "form-control" %>
-              <% @booking.errors.full_messages_for(:player).each do |message| %>
-                <div><%= message %></div>
-              <% end %>
-            </div>
-
-            <div>
-              <%= f.submit "Enregistrer", class: "btn btn-dark" %>
-            </div>
-          <% end %>
-        </div>
+        <p class="card-text font-weight-bold">Parties jouées :</p>
+        <%= render "played_games", bookings: @bookings %>
       </div>
     </div>
   </div>
 </div>
+
+<%= render "booking_modal", booking: @booking, figurine: @figurine %>

@@ -1,0 +1,9 @@
+<% if bookings.any? %>
+  <ul>
+    <% bookings.each do |booking| %>
+      <li><%= "#{booking.game.name} - par #{booking.player}" %></li>
+    <% end %>
+  </ul>
+<% else %>
+  Pas encore de partie jouée :(
+<% end %>

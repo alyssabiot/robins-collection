@@ -1,0 +1,33 @@
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookingModalLabel"><%= "Réserver #{figurine.name}" %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= form_with model: [figurine, booking] do |f| %>
+          <div class="mb-3">
+            <%= f.label "Partie", class: "form-label" %><br>
+            <%= f.collection_select :game_id, Game.all, :id, :name_with_date, {}, {class: "form-select"} %>
+            <% booking.errors.full_messages_for(:game_id).each do |message| %>
+            <div><%= message %></div>
+            <% end %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label "Joueur", class: "form-label" %><br>
+            <%= f.text_field :player, class: "form-control" %>
+            <% booking.errors.full_messages_for(:player).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
+
+          <div>
+            <%= f.submit "Enregistrer", class: "btn btn-dark" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
