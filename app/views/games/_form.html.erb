@@ -9,8 +9,8 @@
 
   <div class="mb-3">
     <%= f.label "Date", class: "form-label" %><br>
-    <%= f.date_field :date, class: "form-control" %>
-    <% @game.errors.full_messages_for(:date).each do |message| %>
+    <%= f.date_field :game_date, class: "form-control" %>
+    <% @game.errors.full_messages_for(:game_date).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>

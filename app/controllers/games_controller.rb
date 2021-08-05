@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   http_basic_authenticate_with name: ENV['APP_USERNAME'], password: ENV['APP_PASSWORD'], except: [:index] if Rails.env.production?
 
   def index
-    @games = Game.order(date: :desc).paginate(params[:page])
+    @games = Game.order(game_date: :desc).paginate(params[:page])
   end
 
   def new
@@ -42,6 +42,6 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:name, :comment, :date)
+    params.require(:game).permit(:name, :comment, :game_date)
   end
 end

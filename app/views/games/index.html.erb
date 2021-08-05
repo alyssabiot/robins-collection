@@ -19,7 +19,7 @@
     <% @games.each do |game| %>
       <tr>
         <th scope="row"><%= game.name %></th>
-        <td><%= game.date.try(:strftime, '%d/%m/%Y') %></td>
+        <td><%= game.game_date.try(:strftime, '%d/%m/%Y') %></td>
         <td><%= game.comment %></td>
         <td>
           <ul>
