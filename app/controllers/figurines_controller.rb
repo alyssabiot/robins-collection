@@ -2,11 +2,12 @@ class FigurinesController < ApplicationController
   http_basic_authenticate_with name: ENV['APP_USERNAME'], password: ENV['APP_PASSWORD'], except: [:index, :show] if Rails.env.production?
   helper_method :sort_column, :sort_direction
 
-  SORTABLE_FIELDS = ["name", "universes.name", "families.name", "specialities.name", "is_painted", "artists.name", "has_portrait"]
+  SORTABLE_FIELDS = ["figurines.name", "universes.name", "families.name", "specialities.name", "is_painted", "artists.name", "has_portrait"]
 
   def index
-    @figurines = Figurine.includes(:universe, :family, :speciality, :artist).order("#{sort_column} #{sort_direction}", name: :asc).paginate(params[:page])
-    @total = Figurine.all.count
+    @filtered_figurines = Figurine.search(params[:search])
+    @figurines = @filtered_figurines.eager_load(:universe, :family, :speciality, :artist).order("#{sort_column} #{sort_direction}", name: :asc).paginate(params[:page])
+    @total = @filtered_figurines.count
   end
 
   def show
@@ -58,7 +59,7 @@ class FigurinesController < ApplicationController
   end
 
   def sort_column
-    SORTABLE_FIELDS.include?(params[:sort]) ? params[:sort] : "name"
+    SORTABLE_FIELDS.include?(params[:sort]) ? params[:sort] : "figurines.name"
   end
 
   def sort_direction

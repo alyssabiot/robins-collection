@@ -20,4 +20,18 @@ class Figurine < ApplicationRecord
     self.is_painted = painted_picture.present?
     self.has_portrait = portrait.present?
   end
+
+  def self.search(param)
+    if param
+      Figurine.eager_load(:universe, :family, :speciality, :artist).
+      where("figurines.name LIKE :param OR
+        universes.name LIKE :param OR
+        families.name LIKE :param OR
+        specialities.name LIKE :param OR
+        artists.name LIKE :param",
+        param: "%#{param}%")
+    else
+      Figurine.all
+    end
+  end
 end

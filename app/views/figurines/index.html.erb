@@ -2,13 +2,14 @@
 
 <div class='list-actions'>
   <%= paginate @figurines %>
+  <%= render "search_bar" %>
   <%= link_to "Ajouter une figurine", new_figurine_path, class: "btn btn-dark" %>
 </div>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col"><%= sortable "name", display_order_arrow("Nom"), figurines_path %></th>
+      <th scope="col"><%= sortable "figurines.name", display_order_arrow("Nom"), figurines_path %></th>
       <th scope="col">Référence</th>
       <th scope="col"><%= sortable "universes.name", display_order_arrow("Univers"), figurines_path %></th>
       <th scope="col"><%= sortable "families.name", display_order_arrow("Espèce"), figurines_path %></th>
