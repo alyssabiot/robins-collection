@@ -17,7 +17,7 @@
       <tr>
         <th scope="row"><%= artist.name %></th>
         <td><%= link_to "Modifier", edit_artist_path(artist) %> |
-            <%= link_to "Supprimer", artist_path(artist), method: :delete, data: { confirm: "Etes-vous sûr ?" } %></td>
+            <%= link_to "Supprimer", artist_path(artist), method: :delete, data: { confirm: "Confirmer la suppression ?" } %></td>
       </tr>
     <% end %>
   </tbody>

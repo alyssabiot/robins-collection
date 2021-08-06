@@ -19,7 +19,7 @@
         <th scope="row"><%= family.name %></th>
         <td><%= family.figurines.count %></td>
         <td><%= link_to "Modifier", edit_family_path(family) %> |
-            <%= link_to "Supprimer", family_path(family), method: :delete, data: { confirm: "Etes-vous sûr ?" } %></td>
+            <%= link_to "Supprimer", family_path(family), method: :delete, data: { confirm: "Confirmer la suppression ?" } %></td>
       </tr>
     <% end %>
   </tbody>

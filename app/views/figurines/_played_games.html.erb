@@ -1,7 +1,12 @@
 <% if bookings.any? %>
   <ul>
     <% bookings.each do |booking| %>
-      <li><%= "#{booking.game.name} - par #{booking.player}" %></li>
+      <li class="played-games-item">
+        <%= "#{booking.game.name} - par #{booking.player}" %>
+        <%= link_to figurine_booking_path(booking.figurine, booking), method: :delete, data: { confirm: "Confirmer la suppression ?" } do %>
+        <i class="fa fa-times red"></i>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 <% else %>

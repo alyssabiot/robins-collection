@@ -6,7 +6,7 @@
   <%= link_to "Ajouter une figurine", new_figurine_path, class: "btn btn-dark" %>
 </div>
 
-<table class="table table-striped">
+<table class="table table-striped figurines-list">
   <thead>
     <tr>
       <th scope="col"><%= sortable "figurines.name", display_order_arrow("Nom"), figurines_path %></th>

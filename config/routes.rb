@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "figurines#index"
 
   resources :figurines do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :destroy]
   end
   resources :universes, except: [:show]
   resources :families, except: [:show]
