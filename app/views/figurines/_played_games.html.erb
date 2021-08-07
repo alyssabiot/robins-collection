@@ -2,7 +2,7 @@
   <ul>
     <% bookings.each do |booking| %>
       <li class="played-games-item">
-        <%= "#{booking.game.name} - par #{booking.player}" %>
+        <%= "#{booking.game.name_with_date} - par #{booking.player}" %>
         <%= link_to figurine_booking_path(booking.figurine, booking), method: :delete, data: { confirm: "Confirmer la suppression ?" } do %>
         <i class="fa fa-times delete-link"></i>
         <% end %>

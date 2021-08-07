@@ -9,7 +9,7 @@
         <%= form_with model: [figurine, booking] do |f| %>
           <div class="mb-3">
             <%= f.label "Partie", class: "form-label" %><br>
-            <%= f.collection_select :game_id, Game.all, :id, :name_with_date, {}, {class: "form-select"} %>
+            <%= f.collection_select :game_id, Game.available_for_figurine(figurine), :id, :name_with_date, {}, {class: "form-select"} %>
             <% booking.errors.full_messages_for(:game_id).each do |message| %>
             <div><%= message %></div>
             <% end %>
