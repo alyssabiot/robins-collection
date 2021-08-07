@@ -1,3 +1,5 @@
+@import "variables";
+
 .container {
   margin: 20px auto;
   width: 80%;
@@ -7,9 +9,13 @@
   box-shadow: none;
 }
 
+.form-control:focus {
+  border-color: $black;
+}
+
 a {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.7);
+  color: $medium-black-link;
 }
 
 a:hover,
@@ -17,15 +23,19 @@ a:hover,
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .show > .nav-link,
 .navbar-light .navbar-nav .nav-link.active {
-  color: black;
+  color: $black;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $light-black-link;
 }
 
 .fa.green {
-  color: green;
+  color: $green;
 }
 
 .fa.red {
-  color: red;
+  color: $red;
 }
 
 .margin-10 {
@@ -37,12 +47,12 @@ a:hover,
 }
 
 .pagination .page-link {
-  color: rgba(0, 0, 0, 0.55);
+  color: $light-black-link;
 }
 
 .pagination .page-item.active .page-link {
-  background-color: grey;
-  border-color: grey;
+  background-color: $grey;
+  border-color: $grey;
 }
 
 .list-actions {
@@ -57,7 +67,7 @@ a:hover,
 }
 
 .missing-picture i {
-  color: grey;
+  color: $grey;
 }
 
 .download-picture:hover {
@@ -66,4 +76,12 @@ a:hover,
 
 .hidden {
   display: none;
+}
+
+.delete-link {
+  color: $red-link;
+}
+
+.delete-link:hover {
+  color: $red;
 }
