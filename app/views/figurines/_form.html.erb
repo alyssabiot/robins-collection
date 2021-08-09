@@ -24,7 +24,7 @@
   </div>
 
   <div class="mb-3">
-    <%= f.label "Classe(s)", class: "form-label" %><br>
+    <%= f.label "Classes", class: "form-label" %><br>
     <div class="checkboxes-group">
       <%= f.collection_check_boxes :speciality_ids, Speciality.all, :id, :name do |speciality| %>
         <div class="form-check">
