@@ -5,7 +5,7 @@
   width: 80%;
 }
 
-.btn:focus, .navbar-toggler:focus, .form-control:focus, .form-select:focus {
+.btn:focus, .navbar-toggler:focus, .form-control:focus, .form-select:focus, .form-check-input:focus {
   box-shadow: none;
 }
 
@@ -84,4 +84,15 @@ a:hover,
 
 .delete-link:hover {
   color: $red;
+}
+
+table ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.checkboxes-group {
+  max-height: 100px;
+  overflow: scroll;
 }

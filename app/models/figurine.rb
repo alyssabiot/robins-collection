@@ -14,6 +14,9 @@ class Figurine < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :games, through: :bookings
 
+  has_many :figurine_specialities, dependent: :destroy
+  has_many :specialities, through: :figurine_specialities
+
   before_save :set_boolean_fields
 
   def set_boolean_fields
@@ -21,13 +24,17 @@ class Figurine < ApplicationRecord
     self.has_portrait = portrait.present?
   end
 
+  def speciality_list
+    specialities.map(&:name).join(", ")
+  end
+
   def self.search(param)
+    # TO DO : add specialities
     if param
-      Figurine.eager_load(:universe, :family, :speciality, :artist).
+      Figurine.eager_load(:universe, :family, :artist).
       where("figurines.name LIKE :param OR
         universes.name LIKE :param OR
         families.name LIKE :param OR
-        specialities.name LIKE :param OR
         artists.name LIKE :param",
         param: "%#{param}%")
     else

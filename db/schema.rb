@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_113628) do
+ActiveRecord::Schema.define(version: 2021_08_09_201636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(version: 2021_08_05_113628) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "figurine_specialities", force: :cascade do |t|
+    t.bigint "figurine_id"
+    t.bigint "speciality_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["figurine_id"], name: "index_figurine_specialities_on_figurine_id"
+    t.index ["speciality_id"], name: "index_figurine_specialities_on_speciality_id"
+  end
+
   create_table "figurines", force: :cascade do |t|
     t.string "name"
     t.text "comment"
@@ -75,10 +84,8 @@ ActiveRecord::Schema.define(version: 2021_08_05_113628) do
     t.bigint "family_id"
     t.boolean "is_painted", default: false
     t.boolean "has_portrait", default: false
-    t.bigint "speciality_id"
     t.index ["artist_id"], name: "index_figurines_on_artist_id"
     t.index ["family_id"], name: "index_figurines_on_family_id"
-    t.index ["speciality_id"], name: "index_figurines_on_speciality_id"
     t.index ["universe_id"], name: "index_figurines_on_universe_id"
   end
 
@@ -106,4 +113,6 @@ ActiveRecord::Schema.define(version: 2021_08_05_113628) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "figurines"
   add_foreign_key "bookings", "games"
+  add_foreign_key "figurine_specialities", "figurines"
+  add_foreign_key "figurine_specialities", "specialities"
 end

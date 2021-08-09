@@ -24,9 +24,18 @@
   </div>
 
   <div class="mb-3">
-    <%= f.label "Classe", class: "form-label" %><br>
-    <%= f.collection_select :speciality_id, Speciality.all, :id, :name, {include_blank: true}, {class: "form-select"} %>
-    <% figurine.errors.full_messages_for(:speciality_id).each do |message| %>
+    <%= f.label "Classe(s)", class: "form-label" %><br>
+    <div class="checkboxes-group">
+      <%= f.collection_check_boxes :speciality_ids, Speciality.all, :id, :name do |speciality| %>
+        <div class="form-check">
+          <%= speciality.label do %>
+            <%= speciality.check_box class: 'form-check-input' %>
+            <%= speciality.text %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <% figurine.errors.full_messages_for(:speciality_ids).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
