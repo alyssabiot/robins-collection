@@ -50,6 +50,7 @@
 
   <div class="mb-3">
     <%= f.label "Image de référence", class: "form-label" %><br>
+    <%= render "picture_name", picture: figurine.reference_picture %>
     <%= f.file_field :reference_picture, class: "form-control-file" %>
     <% figurine.errors.full_messages_for(:reference_picture).each do |message| %>
       <div><%= message %></div>
@@ -58,6 +59,7 @@
 
   <div class="mb-3">
     <%= f.label "Figurine peinte", class: "form-label" %><br>
+    <%= render "picture_name", picture: figurine.painted_picture %>
     <%= f.file_field :painted_picture, class: "form-control-file" %>
     <% figurine.errors.full_messages_for(:painted_picture).each do |message| %>
       <div><%= message %></div>
@@ -74,6 +76,7 @@
 
   <div class="mb-3">
     <%= f.label "Portrait", class: "form-label" %><br>
+    <%= render "picture_name", picture: figurine.portrait %>
     <%= f.file_field :portrait, class: "form-control-file" %>
     <% figurine.errors.full_messages_for(:portrait).each do |message| %>
       <div><%= message %></div>

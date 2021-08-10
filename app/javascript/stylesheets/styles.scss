@@ -13,6 +13,10 @@
   border-color: $black;
 }
 
+.form-label {
+  font-weight: bold;
+}
+
 a {
   text-decoration: none;
   color: $medium-black-link;
@@ -44,6 +48,10 @@ a:hover,
 
 .font-weight-bold {
   font-weight: bold;
+}
+
+.font-italic {
+  font-style: italic;
 }
 
 .pagination .page-link {
