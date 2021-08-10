@@ -29,13 +29,13 @@ class Figurine < ApplicationRecord
   end
 
   def self.search(param)
-    # TO DO : add specialities
     if param
-      Figurine.eager_load(:universe, :family, :artist).
+      Figurine.eager_load(:universe, :family, :artist, :specialities).
       where("figurines.name LIKE :param OR
         universes.name LIKE :param OR
         families.name LIKE :param OR
-        artists.name LIKE :param",
+        artists.name LIKE :param OR
+        specialities.name LIKE :param",
         param: "%#{param}%")
     else
       Figurine.all
